@@ -11,7 +11,7 @@ All of the below live in **[`js/config.js`](js/config.js)**, edited in one place
 - `email` — where enquiries should be visible from (also shown in the footer)
 - `googleSheetsFormUrl` — see **[GOOGLE_SHEETS_SETUP.md](GOOGLE_SHEETS_SETUP.md)** for the full walkthrough. Until this is set, the contact form shows a friendly "not wired up yet" message and points people to WhatsApp instead — it won't fail silently.
 - `social` — LinkedIn / Instagram / Facebook / TikTok links
-- `founder` — name, role, and background. This one object updates the name/bio shown on the homepage, About page, and anywhere else `data-founder-*` is used. **Confirm the exact spelling of the founder's name** — it's currently a best guess ("Shahfiq Nashrah") inferred from the email/GitHub handle.
+- `founder` — name, role, and background. This one object updates the name/bio shown on the homepage, About page, and anywhere else `data-founder-*` is used.
 
 The founder photo lives at `img/founder/founder.jpg`; swap the file (keep the same name) to replace it.
 

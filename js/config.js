@@ -24,10 +24,8 @@ window.BDE_CONFIG = {
     tiktok: "#"
   },
 
-  // NOTE: "Shahfiq Nashrah" is our best guess from your email/GitHub handle — please
-  // confirm the exact name/spelling you want shown publicly and we'll correct it.
   founder: {
-    name: "Shahfiq Nashrah",
+    name: "Ts. Shahfiq Nashrah",
     role_en: "Founder — Bitara Digital Enterprise",
     role_ms: "Pengasas — Bitara Digital Enterprise",
     background_en: "Almost a decade as an IT professional at multinational companies including Quantum (US-based), PETRONAS, and Tribal Group (UK-based).",
