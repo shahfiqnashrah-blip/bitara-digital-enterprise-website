@@ -4,16 +4,18 @@
    ========================================================================== */
 window.BDE_CONFIG = {
   // WhatsApp number in international format, digits only (no +, no spaces)
-  whatsappNumber: "60100000000",
-  whatsappDisplay: "+60 10-000 0000",
+  whatsappNumber: "60172137357",
+  whatsappDisplay: "+60 17-213 7357",
 
-  // Enquiry email (also where the contact form message text points to as a fallback)
-  email: "hello@bitaradigital.example",
+  // Enquiry email
+  email: "shahfiqnashrah@gmail.com",
 
-  // Free access key from https://web3forms.com (no backend needed — form emails you directly)
-  web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  // Google Sheets enquiry form — see GOOGLE_SHEETS_SETUP.md for the step-by-step guide.
+  // Paste your Apps Script Web App URL here (ends in /exec). Until this is a real URL,
+  // the form shows a friendly "not wired up yet" message and points to WhatsApp instead.
+  googleSheetsFormUrl: "YOUR_APPS_SCRIPT_WEB_APP_URL",
 
-  location: "Kuala Lumpur, Malaysia",
+  location: "31850 Kampar, Perak",
 
   social: {
     linkedin: "#",
@@ -22,11 +24,13 @@ window.BDE_CONFIG = {
     tiktok: "#"
   },
 
+  // NOTE: "Shahfiq Nashrah" is our best guess from your email/GitHub handle — please
+  // confirm the exact name/spelling you want shown publicly and we'll correct it.
   founder: {
-    name: "[Founder Name]",
-    role_en: "Founder & Lead Consultant",
-    role_ms: "Pengasas & Perunding Utama",
-    background_en: "[One-line background — e.g. 10+ years building production software and delivering enterprise AI training.]",
-    background_ms: "[Latar belakang ringkas — cth. 10+ tahun membina perisian produksi dan menyampaikan latihan AI korporat.]"
+    name: "Shahfiq Nashrah",
+    role_en: "Founder — Bitara Digital Enterprise",
+    role_ms: "Pengasas — Bitara Digital Enterprise",
+    background_en: "Almost a decade as an IT professional at multinational companies including Quantum (US-based), PETRONAS, and Tribal Group (UK-based).",
+    background_ms: "Hampir sedekad pengalaman sebagai profesional IT di syarikat multinasional seperti Quantum (berpangkalan di AS), PETRONAS, dan Tribal Group (berpangkalan di UK)."
   }
 };

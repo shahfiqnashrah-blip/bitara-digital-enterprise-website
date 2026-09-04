@@ -9,15 +9,17 @@ All of the below live in **[`js/config.js`](js/config.js)**, edited in one place
 
 - `whatsappNumber` / `whatsappDisplay` — your real WhatsApp number
 - `email` — where enquiries should be visible from (also shown in the footer)
-- `web3formsKey` — get a free key at [web3forms.com](https://web3forms.com) (just your email, no account needed). Until this is set, the contact form shows a friendly "not wired up yet" message and points people to WhatsApp instead — it won't fail silently.
+- `googleSheetsFormUrl` — see **[GOOGLE_SHEETS_SETUP.md](GOOGLE_SHEETS_SETUP.md)** for the full walkthrough. Until this is set, the contact form shows a friendly "not wired up yet" message and points people to WhatsApp instead — it won't fail silently.
 - `social` — LinkedIn / Instagram / Facebook / TikTok links
-- `founder` — name, role, and one-line background. This one field updates the name shown on the homepage, About page, and anywhere else `data-founder-*` is used.
+- `founder` — name, role, and background. This one object updates the name/bio shown on the homepage, About page, and anywhere else `data-founder-*` is used. **Confirm the exact spelling of the founder's name** — it's currently a best guess ("Shahfiq Nashrah") inferred from the email/GitHub handle.
 
-Also replace the founder photo placeholder in `img/` if you have a headshot, and swap it into `about.html` / `index.html` (currently using the BDE icon mark as a placeholder).
+The founder photo lives at `img/founder/founder.jpg`; swap the file (keep the same name) to replace it.
 
 ## Posting a new activity / update
 
-Open **[`js/activities-data.js`](js/activities-data.js)** and copy one of the sample objects to the **top** of the array (newest first). Fill in the date, category (`training` / `development` / `announcement`), and English + Bahasa text. Save and push — no build step. It'll show up on the homepage (latest 3) and the full Activities page automatically.
+Open **[`js/activities-data.js`](js/activities-data.js)** and copy one of the existing objects to the **top** of the array (newest first). Fill in the date, category (`training` / `development` / `announcement`), English + Bahasa title/excerpt, an `image` path (or `null` to fall back to a category icon), and a `link` to a full article page. Save and push — no build step. The card shows up on the homepage (latest 3) and the full Activities page automatically.
+
+For the full article itself: copy one of the pages in `activities/` (e.g. `activities/kt-midas-ai-training.html`) as a starting template, update the `<title>`/meta tags, breadcrumb, hero image, and the `.article-body` content (English in the `.i18n-en` block, Bahasa in the `.i18n-ms` block), then drop the matching photos into a new folder under `img/activities/`.
 
 ## Local preview
 
@@ -29,11 +31,13 @@ then open `http://localhost:5195`.
 ## Structure
 
 - `index.html`, `development.html`, `training.html`, `activities.html`, `about.html`, `contact.html` — pages
+- `activities/*.html` — full SEO-optimized article pages linked from the Activities feed
 - `css/style.css` — design tokens + all styling
 - `js/config.js` — business info (edit this first)
-- `js/activities-data.js` — activity/update posts
+- `js/activities-data.js` — activity/update card data (title, excerpt, image, link to the article page)
 - `js/main.js` — shared behavior (language toggle, nav, forms, WhatsApp links, etc.)
-- `img/` — logo assets from the brand folder
+- `img/` — logo, founder photo, and activity photos
+- `GOOGLE_SHEETS_SETUP.md` — how to connect the contact form to a Google Sheet
 
 ## Deploying
 

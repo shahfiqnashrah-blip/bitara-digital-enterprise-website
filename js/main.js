@@ -152,8 +152,6 @@
   function initForms() {
     var cfg = window.BDE_CONFIG || {};
     document.querySelectorAll("form[data-enquiry-form]").forEach(function (form) {
-      var keyInput = form.querySelector('input[name="access_key"]');
-      if (keyInput) keyInput.value = cfg.web3formsKey || "";
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -174,7 +172,8 @@
         var originalLabel = submitBtn ? submitBtn.textContent : "";
         if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = form.dataset.sending || "Sending..."; }
 
-        var isPlaceholderKey = !cfg.web3formsKey || cfg.web3formsKey === "YOUR_WEB3FORMS_ACCESS_KEY";
+        var sheetsUrl = cfg.googleSheetsFormUrl;
+        var isPlaceholderUrl = !sheetsUrl || sheetsUrl === "YOUR_APPS_SCRIPT_WEB_APP_URL";
 
         var finish = function (ok) {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
@@ -187,9 +186,10 @@
           if (ok) form.reset();
         };
 
-        if (isPlaceholderKey) {
-          // No live Web3Forms key configured yet — surface this clearly instead of failing silently.
-          console.warn("BDE: web3formsKey is still a placeholder in js/config.js — form will not actually send.");
+        if (isPlaceholderUrl) {
+          // No live Google Sheets Web App URL configured yet — surface this clearly
+          // instead of failing silently. See GOOGLE_SHEETS_SETUP.md.
+          console.warn("BDE: googleSheetsFormUrl is still a placeholder in js/config.js — form will not actually send.");
           if (status) {
             status.textContent = "Enquiry form isn't fully wired up yet — please use the WhatsApp button below for now.";
             status.className = "form-status show error";
@@ -198,13 +198,12 @@
           return;
         }
 
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
-        })
+        // Sent as FormData (not JSON) so the browser skips a CORS preflight —
+        // Apps Script Web Apps don't answer OPTIONS requests. doPost(e) reads
+        // these straight off e.parameter.
+        fetch(sheetsUrl, { method: "POST", body: new FormData(form) })
           .then(function (res) { return res.json(); })
-          .then(function (data) { finish(!!data.success); })
+          .then(function (data) { finish(!!data && data.result === "success"); })
           .catch(function () { finish(false); });
       });
 

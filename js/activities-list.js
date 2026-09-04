@@ -20,23 +20,31 @@
     empty.style.display = items.length ? "none" : "block";
 
     host.innerHTML = items.map(function (a) {
-      var icon = CATEGORY_ICON[a.category] || CATEGORY_ICON.announcement;
+      var thumb = a.image
+        ? '<img src="' + a.image + '" alt="" loading="lazy">'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + (CATEGORY_ICON[a.category] || CATEGORY_ICON.announcement) + '</svg>';
+      var href = a.link || "#";
       return (
         '<article class="activity-card" data-reveal>' +
-          '<div class="activity-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + icon + '</svg></div>' +
+          '<a href="' + href + '" class="activity-thumb" aria-hidden="true" tabindex="-1">' + thumb + '</a>' +
           '<div class="activity-body">' +
             '<div class="activity-meta"><span>' + a.date + '</span><span>' +
               '<span class="i18n-en"' + (isMs ? " hidden" : "") + '>' + a.tag_en + '</span>' +
               '<span class="i18n-ms"' + (isMs ? "" : " hidden") + '>' + a.tag_ms + '</span>' +
             '</span></div>' +
-            '<h3>' +
+            '<h3><a href="' + href + '" style="color:inherit">' +
               '<span class="i18n-en"' + (isMs ? " hidden" : "") + '>' + a.title_en + '</span>' +
               '<span class="i18n-ms"' + (isMs ? "" : " hidden") + '>' + a.title_ms + '</span>' +
-            '</h3>' +
+            '</a></h3>' +
             '<p>' +
               '<span class="i18n-en"' + (isMs ? " hidden" : "") + '>' + a.excerpt_en + '</span>' +
               '<span class="i18n-ms"' + (isMs ? "" : " hidden") + '>' + a.excerpt_ms + '</span>' +
             '</p>' +
+            '<a class="card-link" href="' + href + '">' +
+              '<span class="i18n-en"' + (isMs ? " hidden" : "") + '>Read the story</span>' +
+              '<span class="i18n-ms"' + (isMs ? "" : " hidden") + '>Baca kisah penuh</span>' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+            '</a>' +
           '</div>' +
         '</article>'
       );
