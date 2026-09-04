@@ -43,7 +43,7 @@ window.BDE_ACTIVITIES = [
     title_ms: "Membina Laman Web Profesional untuk Kolej Teknikal Sri Ayu (KTSA)",
     excerpt_en: "Live since 15 August 2026 — a professional website for KTSA covering courses, hostel & facilities, with enquiries flowing straight into a Google Sheet.",
     excerpt_ms: "Beroperasi sejak 15 Ogos 2026 — laman web profesional untuk KTSA merangkumi kursus, asrama & fasiliti, dengan pertanyaan mengalir terus ke Google Sheet.",
-    image: null,
+    image: "img/activities/ktsa-website/cover.jpg",
     link: "activities/ktsa-website-launch.html"
   }
 ];
