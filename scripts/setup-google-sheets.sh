@@ -306,7 +306,7 @@ fi
 # ── Stage 5: test it end-to-end ────────────────────────────────────────────
 stage "Test it end-to-end"
 say "Confirm the whole loop actually works before relying on it."
-open_url "https://shahfiqnashrah-blip.github.io/bitara-digital-enterprise-website/contact.html"
+open_url "https://bdigital.my/contact.html"
 step "Submit the contact form with a test name, email, and message."
 step "Check the Google Sheet — a new row should appear."
 step "Check $NOTIFY_EMAIL — a notification email should arrive."
