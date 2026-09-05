@@ -29,7 +29,7 @@ window.BDE_CONFIG = {
     name: "Ts. Shahfiq Nashrah",
     role_en: "Founder — Bitara Digital Enterprise",
     role_ms: "Pengasas — Bitara Digital Enterprise",
-    background_en: "Almost a decade as an IT professional at multinational companies including Quantum (US-based), PETRONAS, and Tribal Group (UK-based).",
-    background_ms: "Hampir sedekad pengalaman sebagai profesional IT di syarikat multinasional seperti Quantum (berpangkalan di AS), PETRONAS, dan Tribal Group (berpangkalan di UK)."
+    background_en: "Almost a decade of experience as an IT professional at multinational organisations across the energy and technology sectors.",
+    background_ms: "Hampir sedekad pengalaman sebagai profesional IT di syarikat multinasional dalam sektor tenaga dan teknologi."
   }
 };
