@@ -88,8 +88,11 @@
     document.querySelectorAll("[data-email-display]").forEach(function (el) {
       el.textContent = cfg.email || "";
     });
-    document.querySelectorAll("[data-location-display]").forEach(function (el) {
-      el.textContent = cfg.location || "";
+    document.querySelectorAll("[data-location-en]").forEach(function (el) {
+      el.textContent = cfg.location_en || "";
+    });
+    document.querySelectorAll("[data-location-ms]").forEach(function (el) {
+      el.textContent = cfg.location_ms || "";
     });
     document.querySelectorAll("[data-social-linkedin]").forEach(function (a) { a.href = cfg.social && cfg.social.linkedin || "#"; });
     document.querySelectorAll("[data-social-instagram]").forEach(function (a) { a.href = cfg.social && cfg.social.instagram || "#"; });
@@ -169,14 +172,18 @@
         }
 
         var submitBtn = form.querySelector('button[type="submit"]');
-        var originalLabel = submitBtn ? submitBtn.textContent : "";
+        // Capture via innerHTML, not textContent — textContent would flatten the
+        // bilingual <span class="i18n-en">/<span class="i18n-ms" hidden> markup
+        // into one plain string with both languages concatenated (and no hidden
+        // attribute), showing both languages at once when restored after submit.
+        var originalLabel = submitBtn ? submitBtn.innerHTML : "";
         if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = form.dataset.sending || "Sending..."; }
 
         var sheetsUrl = cfg.googleSheetsFormUrl;
         var isPlaceholderUrl = !sheetsUrl || sheetsUrl === "YOUR_APPS_SCRIPT_WEB_APP_URL";
 
         var finish = function (ok) {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
           if (status) {
             status.textContent = ok
               ? (form.dataset.success || "Thanks — your enquiry has been sent. We'll reply within 1-2 business days.")
@@ -194,7 +201,7 @@
             status.textContent = "Enquiry form isn't fully wired up yet — please use the WhatsApp button below for now.";
             status.className = "form-status show error";
           }
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
           return;
         }
 
