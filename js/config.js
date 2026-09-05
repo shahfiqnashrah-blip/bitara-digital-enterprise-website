@@ -13,7 +13,7 @@ window.BDE_CONFIG = {
   // Google Sheets enquiry form — see GOOGLE_SHEETS_SETUP.md for the step-by-step guide.
   // Paste your Apps Script Web App URL here (ends in /exec). Until this is a real URL,
   // the form shows a friendly "not wired up yet" message and points to WhatsApp instead.
-  googleSheetsFormUrl: "YOUR_APPS_SCRIPT_WEB_APP_URL",
+  googleSheetsFormUrl: "https://script.google.com/macros/s/AKfycbzuHu20ESYsX94YbjJgC470qLuEeI1ZNerRafFMKwyEDuivYJcSr7vP8cFdRMb_PD298A/exec",
 
   location: "31850 Kampar, Perak",
 
