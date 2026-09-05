@@ -92,6 +92,13 @@ spreadsheet constantly.
 3. Save, commit, and push. The contact form will now append every submission as a new row in your
    sheet and email you a notification — no other changes needed.
 
+The same URL also powers the small email-capture CTAs on the Training page ("Get the outline",
+"Send me the video") — those rows land in the same sheet with `Name` as "Lead capture" and
+`Service` set to which one was requested (e.g. "Course Outline — Generative AI Intensive" or
+"Training Demo Video"), so you can tell them apart from real enquiries at a glance. These are the
+leads you follow up with manually (send the outline, send the video) — the form itself doesn't
+attach or send any file.
+
 ## Notes
 
 - **Editing the script later:** if you ever change the code, you must create a **new deployment**

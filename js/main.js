@@ -213,6 +213,71 @@
     });
   }
 
+  // Small email-gated CTAs (e.g. "get the course outline") — reuses the same
+  // Google Sheets endpoint as the main contact form, tagged via data-lead-type
+  // so submissions are easy to tell apart in the sheet.
+  function initLeadForms() {
+    var cfg = window.BDE_CONFIG || {};
+    document.querySelectorAll("form[data-lead-form]").forEach(function (form) {
+      var status = form.querySelector(".lead-status");
+      var emailInput = form.querySelector('input[type="email"]');
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!emailInput.checkValidity()) {
+          emailInput.classList.add("invalid");
+          if (status) {
+            status.textContent = "Please enter a valid email. / Sila masukkan e-mel yang sah.";
+            status.className = "lead-status show error";
+          }
+          return;
+        }
+        emailInput.classList.remove("invalid");
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalLabel = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+
+        var sheetsUrl = cfg.googleSheetsFormUrl;
+        var isPlaceholderUrl = !sheetsUrl || sheetsUrl === "YOUR_APPS_SCRIPT_WEB_APP_URL";
+
+        var finish = function (ok) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalLabel;
+          if (status) {
+            status.textContent = ok
+              ? (form.dataset.success || "Thanks — check your inbox shortly.")
+              : (form.dataset.error || "Something went wrong. Please try WhatsApp instead.");
+            status.className = "lead-status show " + (ok ? "success" : "error");
+          }
+          if (ok) form.reset();
+        };
+
+        if (isPlaceholderUrl) {
+          console.warn("BDE: googleSheetsFormUrl is still a placeholder — lead form will not actually send.");
+          if (status) {
+            status.textContent = "Not wired up yet — please WhatsApp us instead.";
+            status.className = "lead-status show error";
+          }
+          submitBtn.disabled = false;
+          return;
+        }
+
+        var fd = new FormData();
+        fd.append("name", "Lead capture");
+        fd.append("email", emailInput.value);
+        fd.append("service", form.dataset.leadType || "Lead capture");
+        fd.append("message", "Requested via training page: " + (form.dataset.leadType || "lead capture") + ".");
+
+        fetch(sheetsUrl, { method: "POST", body: fd })
+          .then(function (res) { return res.json(); })
+          .then(function (data) { finish(!!data && data.result === "success"); })
+          .catch(function () { finish(false); });
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLang();
     initMobileMenu();
@@ -222,5 +287,6 @@
     initTermTabs();
     initYear();
     initForms();
+    initLeadForms();
   });
 })();

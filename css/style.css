@@ -371,6 +371,7 @@ h3, .h3 { font-size: var(--fs-lg); }
   background: none;
   color: var(--amber);
 }
+.hero .lede { color: rgba(255, 255, 255, 0.88); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-5); }
 .hero-trust {
   display: flex;
@@ -817,6 +818,42 @@ h3, .h3 { font-size: var(--fs-lg); }
 .browser-mock-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 75% 20%, rgba(246,166,0,0.35), transparent 60%); }
 .browser-mock-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
 .browser-mock-cards span { height: 46px; border-radius: var(--radius-sm); background: var(--teal-100); border: 1px solid var(--border); }
+
+/* ---- Lead-capture card (email-gated CTA, e.g. "get the course outline") ----- */
+.lead-card {
+  display: grid;
+  gap: var(--sp-4);
+  background: var(--teal-100);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+@media (min-width: 760px) {
+  .lead-card { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; }
+}
+.lead-card h3 { margin-bottom: 0.3rem; }
+.lead-card p { color: var(--ink-soft); font-size: var(--fs-sm); }
+.lead-form { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.lead-form input[type="email"] {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 0.85em 1em;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+}
+.lead-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+.lead-form input[type="email"].invalid { border-color: var(--danger); }
+.lead-form .btn { flex-shrink: 0; }
+.lead-status { flex-basis: 100%; margin: 0.5rem 0 0; font-size: var(--fs-xs); font-weight: 600; display: none; }
+.lead-status.show { display: block; }
+.lead-status.success { color: var(--success); }
+.lead-status.error { color: var(--danger); }
 
 /* ---- Reveal-on-scroll ------------------------------------------------------- */
 [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
