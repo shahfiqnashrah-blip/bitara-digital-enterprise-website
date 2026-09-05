@@ -18,10 +18,10 @@ window.BDE_CONFIG = {
   location: "31850 Kampar, Perak",
 
   social: {
-    linkedin: "#",
-    instagram: "#",
-    facebook: "#",
-    tiktok: "#"
+    linkedin: "https://www.linkedin.com/in/shahfiq-nashrah/",
+    instagram: "https://www.instagram.com/bitaradigital_/",
+    facebook: "https://www.facebook.com/profile.php?id=61593825460491",
+    tiktok: "https://www.tiktok.com/@coachnash_"
   },
 
   founder: {
