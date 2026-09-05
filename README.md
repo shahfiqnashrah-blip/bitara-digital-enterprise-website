@@ -9,7 +9,7 @@ All of the below live in **[`js/config.js`](js/config.js)**, edited in one place
 
 - `whatsappNumber` / `whatsappDisplay` — your real WhatsApp number
 - `email` — where enquiries should be visible from (also shown in the footer)
-- `googleSheetsFormUrl` — see **[GOOGLE_SHEETS_SETUP.md](GOOGLE_SHEETS_SETUP.md)** for the full walkthrough. Until this is set, the contact form shows a friendly "not wired up yet" message and points people to WhatsApp instead — it won't fail silently.
+- `googleSheetsFormUrl` — run `bash scripts/setup-google-sheets.sh` for an interactive walkthrough, or see **[GOOGLE_SHEETS_SETUP.md](GOOGLE_SHEETS_SETUP.md)** to do it by hand. Until this is set, the contact form shows a friendly "not wired up yet" message and points people to WhatsApp instead — it won't fail silently.
 - `social` — LinkedIn / Instagram / Facebook / TikTok links
 - `founder` — name, role, and background. This one object updates the name/bio shown on the homepage, About page, and anywhere else `data-founder-*` is used.
 
@@ -38,6 +38,7 @@ then open `http://localhost:5195`.
 - `js/main.js` — shared behavior (language toggle, nav, forms, WhatsApp links, etc.)
 - `img/` — logo, founder photo, and activity photos
 - `GOOGLE_SHEETS_SETUP.md` — how to connect the contact form to a Google Sheet
+- `scripts/setup-google-sheets.sh` — interactive wizard that does the Google Sheets setup for you
 
 ## Deploying
 

@@ -7,6 +7,20 @@ you just need to create the Sheet + a small Apps Script "receiver" once, then pa
 This also sends you an email notification for every enquiry — so you don't need to check the
 spreadsheet constantly.
 
+## Easiest way: run the setup wizard
+
+```bash
+bash scripts/setup-google-sheets.sh
+```
+
+Run this from a terminal (Git Bash on Windows works fine) with this repo checked out. It walks you
+through every step below one at a time — opens the right Google page, tells you exactly what to
+click and paste — then updates `js/config.js` and offers to commit + push for you. Stop anytime
+with Ctrl-C and re-run later; it remembers what you've already entered.
+
+The manual steps below are the same thing written out, in case you'd rather do it by hand or the
+script isn't available on your machine.
+
 ## Step 1 — Create the spreadsheet
 
 1. Go to [sheets.google.com](https://sheets.google.com) and create a **Blank spreadsheet**.
