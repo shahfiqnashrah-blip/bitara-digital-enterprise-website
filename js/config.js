@@ -15,8 +15,8 @@ window.BDE_CONFIG = {
   // the form shows a friendly "not wired up yet" message and points to WhatsApp instead.
   googleSheetsFormUrl: "https://script.google.com/macros/s/AKfycbzuHu20ESYsX94YbjJgC470qLuEeI1ZNerRafFMKwyEDuivYJcSr7vP8cFdRMb_PD298A/exec",
 
-  location_en: "Serving Perak & Kuala Lumpur — on-site or online",
-  location_ms: "Aktif di kawasan Perak & Kuala Lumpur — secara bersemuka atau dalam talian",
+  location_en: "Serving Malaysia — on-site or online",
+  location_ms: "Aktif di seluruh Malaysia — secara bersemuka atau dalam talian",
 
   social: {
     linkedin: "https://www.linkedin.com/in/shahfiq-nashrah/",
