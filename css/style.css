@@ -857,6 +857,83 @@ h3, .h3 { font-size: var(--fs-lg); }
 .lead-status.success { color: var(--success); }
 .lead-status.error { color: var(--danger); }
 
+/* ---- E-book marketplace ----------------------------------------------------- */
+.product-grid { display: grid; gap: var(--sp-4); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 960px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.product-card { display: flex; flex-direction: column; }
+.product-card .btn { margin-top: auto; }
+
+.product-cover {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--sp-3);
+}
+.product-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-cover.is-placeholder {
+  background: linear-gradient(155deg, var(--teal-900) 0%, var(--teal) 65%, var(--teal-600) 100%);
+  color: #fff;
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-cover.is-placeholder::before {
+  content: '';
+  position: absolute; top: -20%; right: -20%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(246,166,0,0.20), transparent 70%);
+  pointer-events: none;
+}
+.product-cover .cover-eyebrow {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal-200);
+}
+.product-cover .cover-num {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--amber);
+}
+.product-cover .cover-title {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.32;
+}
+
+.product-status {
+  position: absolute;
+  top: var(--sp-2);
+  right: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.35em 0.75em;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  z-index: 1;
+}
+.product-status.is-available { background: var(--amber); color: var(--teal-900); }
+.product-status.is-soon { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+.product-card h3 { font-size: var(--fs-md); margin-bottom: 0.3rem; }
+.product-card .product-desc { color: var(--ink-soft); font-size: var(--fs-sm); margin-bottom: var(--sp-3); flex-grow: 1; }
+.product-price { font-family: var(--font-mono); font-weight: 700; color: var(--teal); margin-bottom: var(--sp-3); }
+
+.btn.is-disabled { opacity: 0.55; cursor: not-allowed; }
+.btn.is-disabled:hover { transform: none; }
+
 /* ---- Reveal-on-scroll ------------------------------------------------------- */
 [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
 [data-reveal].in-view { opacity: 1; transform: translateY(0); }
