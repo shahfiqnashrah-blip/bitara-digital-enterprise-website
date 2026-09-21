@@ -10,7 +10,9 @@
     if (!select) return;
     var map = {
       development: "Web Development",
-      training: "Generative AI Intensive"
+      training: "Generative AI Intensive",
+      collab: "Trainer Collaboration",
+      ebook: "E-Book / Ebook Order"
     };
     var value = map[service];
     if (value) select.value = value;

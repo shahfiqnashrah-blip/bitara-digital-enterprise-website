@@ -8,6 +8,45 @@
    ========================================================================== */
 window.BDE_ACTIVITIES = [
   {
+    id: "ai-untuk-sme-ebook-launch",
+    date: "2026-09-18",
+    category: "announcement",
+    tag_en: "E-Book Launch",
+    tag_ms: "Pelancaran E-Book",
+    title_en: "AI Untuk SME — My First E-Book on Practical AI Adoption for Malaysian SMEs",
+    title_ms: "AI Untuk SME — E-Book Pertama Saya Tentang Adopsi AI Praktikal untuk PKS Malaysia",
+    excerpt_en: "A Bahasa Malaysia e-book for SME owners moving from experimenting with ChatGPT to actually implementing AI — with 3 free bonuses (12 checklists, 60 prompts, 10 workflow templates), priced at RM9.90.",
+    excerpt_ms: "E-book Bahasa Malaysia untuk usahawan PKS yang beralih daripada bereksperimen dengan ChatGPT kepada benar-benar melaksanakan AI — dengan 3 bonus percuma (12 senarai semak, 60 prompt, 10 workflow templates), berharga RM9.90.",
+    image: "img/activities/ebook-launch/cover.jpg",
+    link: "activities/ai-untuk-sme-ebook-launch.html"
+  },
+  {
+    id: "ktsa-generative-ai-training",
+    date: "2026-09-10",
+    category: "training",
+    tag_en: "Generative AI Intensive",
+    tag_ms: "Generative AI Intensif",
+    title_en: "Generative AI Intensive Training for Kolej Teknikal Sri Ayu (KTSA) Staff",
+    title_ms: "Latihan Intensif Generative AI untuk Kakitangan Kolej Teknikal Sri Ayu (KTSA)",
+    excerpt_en: "16 staff — 11 course assessors and 5 management — spent a day on Generative AI and NotebookLM for real TVET curriculum work. A follow-up coaching session is already requested.",
+    excerpt_ms: "16 kakitangan — 11 Pegawai Penilai dan 5 pengurusan — meluangkan sehari mempelajari Generative AI dan NotebookLM untuk kerja kurikulum TVET sebenar. Sesi coaching susulan sudah diminta.",
+    image: "img/activities/ktsa-training/cover.jpg",
+    link: "activities/ktsa-generative-ai-training.html"
+  },
+  {
+    id: "hrdc-accredited-trainer-milestone",
+    date: "2026-09-09",
+    category: "announcement",
+    tag_en: "Milestone",
+    tag_ms: "Pencapaian",
+    title_en: "Now an HRD Corp Accredited Trainer — Open for Collaboration",
+    title_ms: "Kini Jurulatih Bertauliah HRD Corp — Terbuka untuk Kolaborasi",
+    excerpt_en: "Officially an HRD Corp (HRDC) Accredited Trainer alongside my JPK certification — now open to collaborate with training providers and corporate L&D teams across Malaysia.",
+    excerpt_ms: "Kini secara rasmi Jurulatih Bertauliah HRD Corp (HRDC) bersama sijil JPK — terbuka untuk bekerjasama dengan penyedia latihan dan pasukan L&D korporat di seluruh Malaysia.",
+    image: "img/founder/founder.jpg",
+    link: "activities/hrdc-accredited-trainer-milestone.html"
+  },
+  {
     id: "kt-midas-ai-training",
     date: "2026-09-02",
     category: "training",

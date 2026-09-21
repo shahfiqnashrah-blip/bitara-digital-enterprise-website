@@ -742,6 +742,8 @@ h3, .h3 { font-size: var(--fs-lg); }
 .article-body strong { color: var(--ink); }
 .article-body ul { margin: var(--sp-4) 0; padding-left: 1.3em; list-style: disc; }
 .article-body li { margin-bottom: 0.6rem; }
+.article-body img { width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); display: block; margin: var(--sp-2) 0 var(--sp-5); }
+.article-body figcaption { font-size: var(--fs-xs); color: var(--ink-soft); text-align: center; margin-top: calc(-1 * var(--sp-4) + 0.4rem); margin-bottom: var(--sp-5); }
 
 .article-pullquote {
   margin: var(--sp-6) 0;
